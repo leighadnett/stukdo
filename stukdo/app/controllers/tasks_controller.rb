@@ -5,11 +5,11 @@ class TasksController < ApplicationController
  respond_to :html 
 
   def index
-    @to_do = current_user.tasks.where(state: "to_do")
-    @doing = current_user.tasks.where(state: "doing")
-    @done = current_user.tasks.where(state: "done")
-    respond_with(@tasks)
-  end
+  @to_do = current_user.tasks.where(state: "to_do")
+  @doing = current_user.tasks.where(state: "doing")
+  @done= current_user.tasks.where(state: "done")
+  respond_with(@tasks)
+end
 
   # GET /tasks/1
   # GET /tasks/1.json
@@ -30,10 +30,10 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-   @task = current_user.tasks.new(task_params)
-   @task.save
-   respond_with(@task)
-  end
+  @task = current_user.tasks.new(task_params)
+  @task.save
+  respond_with(@task)
+end
 
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
